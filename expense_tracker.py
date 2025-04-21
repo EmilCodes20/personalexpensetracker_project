@@ -23,10 +23,10 @@ def view_expenses():
     for row in rows:
         print(row)
 
+# Lav Update formel og Delete formel
 def update_expense(expense_id):
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
-    c.execute("UPDATE expenses SET date=?, category=?, amount=?, description=? WHERE id=?",)
 
 # Example usage
 if __name__ == "__main__":
@@ -34,7 +34,9 @@ if __name__ == "__main__":
         print("\nOptions:")
         print("1. Add Expense")
         print("2. View Expenses")
-        print("3. Exit")
+        print("3. Update Expense")
+        print("4. Delete Expense")
+        print("5. Exit")
         choice = input("Choose an option: ")
         
         if choice == "1":
@@ -45,7 +47,7 @@ if __name__ == "__main__":
             add_expense(date, category, amount, description)
         elif choice == "2":
             view_expenses()
-        elif choice == "3":
+        elif choice == "5":
             break
         else:
             print("Invalid choice.")
